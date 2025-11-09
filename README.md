@@ -1,12 +1,16 @@
 # banking_management_code
 
 import java.io.*;
+
 import java.util.*;
+
 import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
 
 public class BankDatabaseManager {
-static class Account implements Serializable {
+
+    static class Account implements Serializable {
         String id, n, ph, em, addr, pw;
         double bal;
         public Account(String id, String n, double bal, String ph, String em, String addr) {
@@ -25,14 +29,14 @@ static class Account implements Serializable {
         }
     }
 
- static class Txn implements Serializable {
+    static class Txn implements Serializable {
         String tid, fId, tId, tp, ts; double amt;
         public Txn(String tid, String fId, String tId, double amt, String tp, String ts) {
             this.tid=tid; this.fId=fId; this.tId=tId; this.amt=amt; this.tp=tp; this.ts=ts;
         }
     }
 
- static class DataMngr {
+    static class DataMngr {
         List<Account> accs=new ArrayList<>();
         List<Txn> txns=new ArrayList<>();
         String acFile="accounts.dat", txnFile="transactions.dat";
@@ -78,7 +82,7 @@ static class Account implements Serializable {
         public List<Account> getAllAccs() {return accs;}
     }
 
- static class TxnMngr {
+    static class TxnMngr {
         DataMngr dm; static int tCount=1000;
         public TxnMngr(DataMngr dm) {this.dm=dm;}
         String genTid() {return "T"+(++tCount);}
@@ -106,7 +110,7 @@ static class Account implements Serializable {
         }
     }
 
-static class AdminInt {
+    static class AdminInt {
         DataMngr dm; Scanner sc=new Scanner(System.in);
         public AdminInt(DataMngr dm) {this.dm=dm;}
         public void menu() {
@@ -147,7 +151,7 @@ static class AdminInt {
         }
     }
 
-static class CustInt {
+    static class CustInt {
         DataMngr dm; Account a; Scanner sc=new Scanner(System.in); TxnMngr tm;
         public CustInt(DataMngr dm, Account a) {this.dm=dm;this.a=a; tm=new TxnMngr(dm);}
         public void menu() {
@@ -200,7 +204,7 @@ static class CustInt {
         }
     }
 
- static class Utils {
+    static class Utils {
         static Scanner sc=new Scanner(System.in);
         public static int gInt() {
             try {return Integer.parseInt(sc.nextLine());}
@@ -212,7 +216,7 @@ static class CustInt {
         }
     }
 
- public static void main(String[] args) {
+    public static void main(String[] args) {
         DataMngr dm=new DataMngr();
         dm.loadAll();
         Scanner sc=new Scanner(System.in);
