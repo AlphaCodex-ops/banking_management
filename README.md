@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class BankDatabaseManager {
 
     static class Account implements Serializable {
+        //declaring variables
         String id, n, ph, em, addr, pw;
         double bal;
         public Account(String id, String n, double bal, String ph, String em, String addr) {
