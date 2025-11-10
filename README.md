@@ -206,6 +206,7 @@ public class BankDatabaseManager {
     }
 
     static class Utils {
+    //class designed to simplify user input
         static Scanner sc=new Scanner(System.in);
         public static int gInt() {
             try {return Integer.parseInt(sc.nextLine());}
