@@ -111,10 +111,10 @@ public class BankDatabaseManager {
         }
     }
 
-    static class AdminInt {
+    static class AdminInt{
         DataMngr dm; Scanner sc=new Scanner(System.in);
         public AdminInt(DataMngr dm) {this.dm=dm;}
-        public void menu() {
+        public void menu(){
             while(true) {
                 System.out.println("\nAdmin:1.Crt 2.VAll 3.Srch 4.Exit");
                 int ch=Utils.gInt();
